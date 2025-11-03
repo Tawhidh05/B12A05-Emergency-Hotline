@@ -6,38 +6,197 @@
   <title>Emergency Service Directory</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
 </head>
-<body class="bg-gray-100 font-sans">
+<body>
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-white font-bold">
-    <div class="flex items-center space-x-2 pl-4">
-      <img src="assets/logo.png" alt="Logo" class="w-12 h-12">
-      <h1 class="text-xl font-extrabold text-[#006747]">Emergency <br>Service</h1>
+<nav class="flex justify-between items-center px-4 py-3 bg-white font-bold sm:px-12 sm:py-3">
+  <div class="flex items-center space-x-3 sm:space-x-6">
+    <img src="assets/logo.png" alt="Logo" class="w-8 h-8 sm:w-12 sm:h-12">
+    <h1 class="text-sm font-extrabold text-[#006747] sm:space-y-1 sm:text-lg">
+      Emergency<br>Service
+    </h1>
+  </div>
+  <div class="flex items-center space-x-2 sm:space-x-6">
+    <div class="flex items-center space-x-2 bg-[#41FF6B] bg-opacity-10 rounded-3xl px-3 py-1 sm:px-6 sm:py-2">
+      <span id="heartCount" class="text-xs sm:text-base">0</span>
+      <img src="assets/heart.png" alt="heart" class="w-5 h-5 sm:w-[30px] sm:h-[30px]">
     </div>
-    <div class="flex items-center space-x-6">
-      <div class="flex items-center space-x-2 bg-[#41FF6B] bg-opacity-10 rounded-3xl px-6 py-2">
-        <span id="heartCount">0</span>
-        <img src="assets/heart.png" alt="heart" class="w-[30px] h-[30px]">
-      </div>
-      <div class="flex items-center space-x-2 bg-[#41FF6B] bg-opacity-10 rounded-3xl px-6 py-2">
-        <span id="coinCount">100</span>
-        <img src="assets/coin.png" alt="heart" class="w-6 h-6">
-      </div>
-      <div class="flex items-center space-x-1.5 text-white  bg-[#00A63E] rounded-3xl px-6 py-2">
-        <span id="copyCount">0</span>
-        <h2>Copy</h2>
-      </div>
+    <div class="flex items-center space-x-2 bg-[#41FF6B] bg-opacity-10 rounded-3xl px-3 py-1 sm:px-6 sm:py-2">
+      <span id="coinCount" class="text-xs sm:text-base">100</span>
+      <img src="assets/coin.png" alt="heart" class="w-4 h-4 sm:w-6 sm:h-6">
     </div>
-  </nav>
+    <div class="flex items-center space-x-1.5 text-white bg-[#00A63E] rounded-3xl px-3 py-1 sm:px-6 sm:py-2">
+      <span id="copyCount" class="text-xs sm:text-base">0</span>
+      <h2 class="text-xs sm:text-base">Copy</h2>
+    </div>
+  </div>
+</nav>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-[#013223] to-[#006747] text-white py-10 text-center mb-4">
+  <section class="bg-gradient-to-r from-[#013223] to-[#006747] text-white space-y-3 p-4 text-center">
     <img src="assets/logo-dark.png" alt="Gov Logo" class="mx-auto w-24">
     <h2 class="text-3xl font-bold">Emergency Service Directory</h2>
     <p class="mt-2">Government Emergency Services at Your Fingertip - A Project by Bangladesh Government</p>
   </section>
 
+    <!-- Main Section -->
+  <section class="grid grid-cols-1 md:grid-cols-4 gap-6 p-6">
+    
+    <!-- Card Section -->
+    <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- National Emergency -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/emergency.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">National Emergency Number</h3>
+        <p class="text-sm text-gray-500 pb-2">National Emergency</p>
+        <p class="text-2xl font-semibold">999</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">All</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+
+      <!-- Women & Child Helpline -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/emergency.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Women & Child Helpline</h3>
+        <p class="text-sm text-gray-500 pb-2">Women & Child Helpline</p>
+        <p class="text-2xl font-semibold">109</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Anti-Corruption Helpline -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/emergency.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Anti-Corruption Helpline</h3>
+        <p class="text-sm text-gray-500 pb-2">Anti-Corruption Helpline</p>
+        <p class="text-2xl font-semibold">106</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Govt.</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Ambulance Service -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/ambulance.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Ambulance Service</h3>
+        <p class="text-sm text-gray-500 pb-2">Ambulance</p>
+        <p class="text-2xl font-semibold">1994-999999</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Electricity Helpline -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/emergency.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Electricity Helpline</h3>
+        <p class="text-sm text-gray-500 pb-2">Electricity Outage</p>
+        <p class="text-2xl font-semibold">16216</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Brac Helpline -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-blue-200 rounded-lg"><img src="assets/brac.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Brac Helpline</h3>
+        <p class="text-sm text-gray-500 pb-2">Brac</p>
+        <p class="text-2xl font-semibold">16445</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Bangladesh Railway Helpline  -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-blue-200 rounded-lg"><img src="assets/Bangladesh-Railway.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Bangladesh Railway Helpline </h3>
+        <p class="text-sm text-gray-500 pb-2">Bangladesh Railway</p>
+        <p class="text-2xl font-semibold">163</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Fire Service Number -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-red-200 rounded-lg"><img src="assets/fire-service.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Fire Service Number</h3>
+        <p class="text-sm text-gray-500 pb-2">Fire Service</p>
+        <p class="text-2xl font-semibold">999</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+      <!-- Police Helpline Number -->
+      <div class=" bg-white p-3 rounded-2xl shadow-md relative">
+        <!-- Heart -->
+        <button onclick="increaseHeart()" class="absolute top-3 right-3 text-gray-400 hover:text-red-500"><i class="fa-regular fa-heart"></i></button>
+        <!-- Icon -->
+        <div class="flex items-center justify-center w-10 h-10 bg-blue-200 rounded-lg"><img src="assets/emergency.png" width="24px" height="24px"></div>
+        <h3 class="text-lg font-bold pt-2">Police Helpline Number</h3>
+        <p class="text-sm text-gray-500 pb-2">Police Helpline</p>
+        <p class="text-2xl font-semibold">999</p>
+        <span class="text-sm bg-gray-200 text-gray-500 px-2 py-1 rounded-xl">Help</span>
+        <!-- Buttons -->
+        <div class="mt-4 flex space-x-2">
+          <button onclick="copyNumber('999')" class="flex-2 flex-col border-2 border-gray-300 text-gray-500 text-sm hover:bg-gray-300 px-10 py-1 rounded-lg"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button onclick="makeCall('Police Helpline Number','999')" class="flex-1 flex-col text-sm text-white bg-green-500 hover:bg-green-300 px-10 py-1 rounded-lg"><i class="fa-solid fa-phone"></i>Call</button>
+        </div>
+      </div>
+
+    </div>
   <script src="script.js"></script>
 </body>
 </html>
